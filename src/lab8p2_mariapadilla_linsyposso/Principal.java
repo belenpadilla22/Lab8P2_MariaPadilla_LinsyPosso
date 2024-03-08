@@ -4,6 +4,8 @@
  */
 package lab8p2_mariapadilla_linsyposso;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author 29164
@@ -26,17 +28,371 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jD_registro = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jtf_usernameRegistro = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jtf_passRegistro = new javax.swing.JTextField();
+        CheckBox_participante = new javax.swing.JCheckBox();
+        CheckBox_admin = new javax.swing.JCheckBox();
+        jb_crearUser = new javax.swing.JButton();
+        jD_listasAdmin = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList_torneos = new javax.swing.JList<>();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList_personas = new javax.swing.JList<>();
+        jb_creartorneo = new javax.swing.JButton();
+        jb_cerrarTorneo = new javax.swing.JButton();
+        jb_ganador = new javax.swing.JButton();
+        jD_crearTorneoAdmin = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jtf_nombreTorneo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jS_rondas = new javax.swing.JSpinner();
+        jb_crearTorneoNuevo = new javax.swing.JButton();
+        jD_listasParti = new javax.swing.JDialog();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList_torneosDisp = new javax.swing.JList<>();
+        jLabel12 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList_torneosCerrados = new javax.swing.JList<>();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList_torneosGanados = new javax.swing.JList<>();
+        jb_unirse = new javax.swing.JButton();
+        jb_salir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jpf_passlogin = new javax.swing.JPasswordField();
+        jb_registro = new javax.swing.JButton();
+        jb_inicio = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jtf_usernamelogin = new javax.swing.JTextField();
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 430, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 430));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel4.setText("Nombre de Usuario");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        jPanel3.add(jtf_usernameRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 250, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel5.setText("Contraseña");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
+        jPanel3.add(jtf_passRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 250, -1));
+
+        CheckBox_participante.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CheckBox_participante.setForeground(new java.awt.Color(0, 0, 0));
+        CheckBox_participante.setSelected(true);
+        CheckBox_participante.setText("Participante");
+        jPanel3.add(CheckBox_participante, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
+
+        CheckBox_admin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CheckBox_admin.setForeground(new java.awt.Color(0, 0, 0));
+        CheckBox_admin.setText("Administrador");
+        jPanel3.add(CheckBox_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
+
+        jb_crearUser.setBackground(new java.awt.Color(255, 51, 51));
+        jb_crearUser.setForeground(new java.awt.Color(255, 255, 255));
+        jb_crearUser.setText("Crear");
+        jPanel3.add(jb_crearUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 90, 30));
+
+        javax.swing.GroupLayout jD_registroLayout = new javax.swing.GroupLayout(jD_registro.getContentPane());
+        jD_registro.getContentPane().setLayout(jD_registroLayout);
+        jD_registroLayout.setHorizontalGroup(
+            jD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jD_registroLayout.setVerticalGroup(
+            jD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel6.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+        );
+
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 460));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel6.setText("Torneos");
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, -1));
+
+        jList_torneos.setBackground(new java.awt.Color(255, 255, 255));
+        jList_torneos.setForeground(new java.awt.Color(0, 0, 0));
+        jList_torneos.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jList_torneos);
+
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 170, 300));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel7.setText("Personas Dentro del Torneo");
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
+
+        jList_personas.setBackground(new java.awt.Color(255, 255, 255));
+        jList_personas.setForeground(new java.awt.Color(0, 0, 0));
+        jList_personas.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jList_personas);
+
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 180, 300));
+
+        jb_creartorneo.setBackground(new java.awt.Color(51, 102, 255));
+        jb_creartorneo.setForeground(new java.awt.Color(255, 255, 255));
+        jb_creartorneo.setText("Crear Torneo");
+        jPanel5.add(jb_creartorneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 13, -1, 30));
+
+        jb_cerrarTorneo.setBackground(new java.awt.Color(255, 51, 51));
+        jb_cerrarTorneo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jb_cerrarTorneo.setForeground(new java.awt.Color(255, 255, 255));
+        jb_cerrarTorneo.setText("Cerrar Torneo");
+        jPanel5.add(jb_cerrarTorneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, -1, 20));
+
+        jb_ganador.setBackground(new java.awt.Color(255, 51, 51));
+        jb_ganador.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jb_ganador.setForeground(new java.awt.Color(255, 255, 255));
+        jb_ganador.setText("Marcar Ganador");
+        jPanel5.add(jb_ganador, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 420, -1, -1));
+
+        javax.swing.GroupLayout jD_listasAdminLayout = new javax.swing.GroupLayout(jD_listasAdmin.getContentPane());
+        jD_listasAdmin.getContentPane().setLayout(jD_listasAdminLayout);
+        jD_listasAdminLayout.setHorizontalGroup(
+            jD_listasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+        );
+        jD_listasAdminLayout.setVerticalGroup(
+            jD_listasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+        );
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 460));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel8.setText("Nombre del Torneo");
+        jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+        jPanel7.add(jtf_nombreTorneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 300, 30));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel9.setText("Rondas");
+        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 50, -1));
+
+        jS_rondas.setModel(new javax.swing.SpinnerNumberModel());
+        jPanel7.add(jS_rondas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 90, 20));
+
+        jb_crearTorneoNuevo.setBackground(new java.awt.Color(0, 102, 255));
+        jb_crearTorneoNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jb_crearTorneoNuevo.setForeground(new java.awt.Color(255, 255, 255));
+        jb_crearTorneoNuevo.setText("Crear Torneo");
+        jPanel7.add(jb_crearTorneoNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 120, 40));
+
+        javax.swing.GroupLayout jD_crearTorneoAdminLayout = new javax.swing.GroupLayout(jD_crearTorneoAdmin.getContentPane());
+        jD_crearTorneoAdmin.getContentPane().setLayout(jD_crearTorneoAdminLayout);
+        jD_crearTorneoAdminLayout.setHorizontalGroup(
+            jD_crearTorneoAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jD_crearTorneoAdminLayout.setVerticalGroup(
+            jD_crearTorneoAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel10.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 490, Short.MAX_VALUE)
+        );
+
+        jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab8p2_mariapadilla_linsyposso/Logo_UNITEC (1).png"))); // NOI18N
+        jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel11.setText("Torneos Disponibles");
+        jPanel9.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
+
+        jList_torneosDisp.setBackground(new java.awt.Color(255, 255, 255));
+        jList_torneosDisp.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jList_torneosDisp);
+
+        jPanel9.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 140, 280));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel12.setText("Torneos Cerrados");
+        jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, -1, -1));
+
+        jList_torneosCerrados.setBackground(new java.awt.Color(255, 255, 255));
+        jList_torneosCerrados.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(jList_torneosCerrados);
+
+        jPanel9.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 140, 280));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel13.setText("Torneos Ganados");
+        jPanel9.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, -1, -1));
+
+        jList_torneosGanados.setBackground(new java.awt.Color(255, 255, 255));
+        jList_torneosGanados.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(jList_torneosGanados);
+
+        jPanel9.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 140, 280));
+
+        jb_unirse.setBackground(new java.awt.Color(255, 51, 51));
+        jb_unirse.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jb_unirse.setForeground(new java.awt.Color(255, 255, 255));
+        jb_unirse.setText("Unirse a Torneo");
+        jPanel9.add(jb_unirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, 30));
+
+        jb_salir.setBackground(new java.awt.Color(51, 102, 255));
+        jb_salir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jb_salir.setForeground(new java.awt.Color(255, 255, 255));
+        jb_salir.setText("Salir");
+        jPanel9.add(jb_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 100, 30));
+
+        javax.swing.GroupLayout jD_listasPartiLayout = new javax.swing.GroupLayout(jD_listasParti.getContentPane());
+        jD_listasParti.getContentPane().setLayout(jD_listasPartiLayout);
+        jD_listasPartiLayout.setHorizontalGroup(
+            jD_listasPartiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jD_listasPartiLayout.setVerticalGroup(
+            jD_listasPartiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel1.setText("Nombre de Usuario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("Contraseña");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+        jPanel1.add(jpf_passlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 280, 30));
+
+        jb_registro.setBackground(new java.awt.Color(0, 102, 255));
+        jb_registro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jb_registro.setForeground(new java.awt.Color(255, 255, 255));
+        jb_registro.setText("Registrar");
+        jPanel1.add(jb_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 110, 40));
+
+        jb_inicio.setBackground(new java.awt.Color(255, 0, 0));
+        jb_inicio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jb_inicio.setForeground(new java.awt.Color(255, 255, 255));
+        jb_inicio.setText("Iniciar Sesion");
+        jPanel1.add(jb_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab8p2_mariapadilla_linsyposso/Logo_UNITEC (1).png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
+        jPanel1.add(jtf_usernamelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 280, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -78,5 +434,59 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CheckBox_admin;
+    private javax.swing.JCheckBox CheckBox_participante;
+    private javax.swing.JDialog jD_crearTorneoAdmin;
+    private javax.swing.JDialog jD_listasAdmin;
+    private javax.swing.JDialog jD_listasParti;
+    private javax.swing.JDialog jD_registro;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList_personas;
+    private javax.swing.JList<String> jList_torneos;
+    private javax.swing.JList<String> jList_torneosCerrados;
+    private javax.swing.JList<String> jList_torneosDisp;
+    private javax.swing.JList<String> jList_torneosGanados;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JSpinner jS_rondas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JButton jb_cerrarTorneo;
+    private javax.swing.JButton jb_crearTorneoNuevo;
+    private javax.swing.JButton jb_crearUser;
+    private javax.swing.JButton jb_creartorneo;
+    private javax.swing.JButton jb_ganador;
+    private javax.swing.JButton jb_inicio;
+    private javax.swing.JButton jb_registro;
+    private javax.swing.JButton jb_salir;
+    private javax.swing.JButton jb_unirse;
+    private javax.swing.JPasswordField jpf_passlogin;
+    private javax.swing.JTextField jtf_nombreTorneo;
+    private javax.swing.JTextField jtf_passRegistro;
+    private javax.swing.JTextField jtf_usernameRegistro;
+    private javax.swing.JTextField jtf_usernamelogin;
     // End of variables declaration//GEN-END:variables
 }
