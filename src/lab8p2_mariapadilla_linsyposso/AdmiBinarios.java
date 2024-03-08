@@ -48,7 +48,7 @@ public class AdmiBinarios {
         
      public void CargarArchivoUser (){
          try {
-             listaUsuarios=new ArrayList();
+            listaUsuarios=new ArrayList();
              User temp;// limpiar memoria RAM
              if (archivo.exists()){// si existe 
                  FileInputStream entrada=new FileInputStream(archivo);

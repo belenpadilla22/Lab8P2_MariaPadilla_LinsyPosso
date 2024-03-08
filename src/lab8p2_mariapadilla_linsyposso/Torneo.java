@@ -4,13 +4,14 @@
  */
 package lab8p2_mariapadilla_linsyposso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author belen
  */
-public class Torneo {
+public class Torneo implements Serializable{
     private String nombre;
     private ArrayList<Participante>listaParticipantes=new ArrayList();
     private boolean terminado;
@@ -66,7 +67,7 @@ public class Torneo {
 
     @Override
     public String toString() {
-        return "Torneo{" + "nombre=" + nombre + ", listaParticipantes=" + listaParticipantes + ", terminado=" + terminado + ", ganador=" + ganador + '}';
+        return  nombre;
     }
     
     

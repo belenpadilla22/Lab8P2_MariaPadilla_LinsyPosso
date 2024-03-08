@@ -17,11 +17,11 @@ import java.util.ArrayList;
  * @author 29164
  */
 public class AdminBinaroTorneo {
-    private ArrayList<Torneo> listaTorneo= new ArrayList();
-      private File archivo = null;
-      
-       
-     public AdminBinaroTorneo(String path) {
+
+    public ArrayList<Torneo> listaTorneo = new ArrayList();
+    private File archivo = null;
+
+    public AdminBinaroTorneo(String path) {
         archivo = new File(path);
     }
 
@@ -41,7 +41,7 @@ public class AdminBinaroTorneo {
         this.archivo = archivo;
     }
 
-    public AdminBinaroTorneo (){
+    public AdminBinaroTorneo() {
     }
 
     @Override
@@ -49,52 +49,50 @@ public class AdminBinaroTorneo {
         return "AdmiBinarioTorneos{" + "listaTorneo=" + listaTorneo + ", archivo=" + archivo + '}';
     }
 
-    public void CargarArchivoUser (){
-         try {
-             listaTorneo=new ArrayList();
-             Torneo temp;// limpiar memoria RAM
-             if (archivo.exists()){// si existe 
-                 FileInputStream entrada=new FileInputStream(archivo);
-                 ObjectInputStream objeto=new ObjectInputStream(entrada);
-                 try {
-                     while ((temp=(Torneo)objeto.readObject())!=null){// leer de objeto a objeto
-                          listaTorneo.add(temp);
-                     }
-                 } catch (EOFException e) {
-                     
-                 }
-                 objeto.close();
-                 entrada.close();
-             
-             }
-         } catch (Exception ex) {
-             ex.printStackTrace();
-         }
-     
-     
-     }
-     public void EscribirArchivoUser (){
-         FileOutputStream fw=null;
-         ObjectOutputStream bw=null;
-         try {
-             fw=new FileOutputStream(archivo);
-             bw=new ObjectOutputStream(fw);
-             for ( Torneo t :listaTorneo) {
-                 bw.writeObject(t);
-             }
-             bw.flush();
-             
-         } catch (Exception e) {
-         }finally {
-             try {
-                 bw.close();
-                 fw.close();
-             } catch (Exception e) {
-             }
-         
-         }
-         
-     
-     
-     }
+    public void CargarArchivoUser() {
+        try {
+            listaTorneo = new ArrayList();
+            Torneo temp;// limpiar memoria RAM
+            if (archivo.exists()) {// si existe 
+                FileInputStream entrada = new FileInputStream(archivo);
+                ObjectInputStream objeto = new ObjectInputStream(entrada);
+                try {
+                    while ((temp = (Torneo) objeto.readObject()) != null) {// leer de objeto a objeto
+                        listaTorneo.add(temp);
+                    }
+                } catch (EOFException e) {
+
+                }
+                objeto.close();
+                entrada.close();
+
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    public void EscribirArchivoUser() {
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        try {
+            fw = new FileOutputStream(archivo);
+            bw = new ObjectOutputStream(fw);
+            for (Torneo t : listaTorneo) {
+                bw.writeObject(t);
+            }
+            bw.flush();
+
+        } catch (Exception e) {
+        } finally {
+            try {
+                bw.close();
+                fw.close();
+            } catch (Exception e) {
+            }
+
+        }
+
+    }
 }
