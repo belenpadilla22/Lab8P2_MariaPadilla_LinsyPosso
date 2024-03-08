@@ -24,8 +24,8 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        ArrayList<User> listaUsuarios= new ArrayList();
-        
+        ArrayList<User> listaUsuarios = new ArrayList();
+
     }
 
     /**
@@ -259,6 +259,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(51, 102, 255));
         jLabel8.setText("Nombre del Torneo");
         jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+
+        jtf_nombreTorneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_nombreTorneoActionPerformed(evt);
+            }
+        });
         jPanel7.add(jtf_nombreTorneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 300, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -460,6 +466,17 @@ public class Principal extends javax.swing.JFrame {
             System.out.println(jtf_passlogin.getText());
             if (jtf_usernamelogin.getText().equals(t.getNombre()) && jtf_passlogin.getText().equals(t.getPassword())) {
                 if (t.isTipo()) {
+                    AdminBinaroTorneo adt = new AdminBinaroTorneo("./Torneos.Belenes");
+                    adt.CargarArchivoUser();
+                    DefaultListModel modelo
+                            = (DefaultListModel) jList_torneos.getModel();
+                   for (Torneo x : adt.listaTorneo) {
+                       modelo.addElement(x.getNombre());
+                    }
+                   modelo.addElement("skjkj");
+                    System.out.println(modelo.getSize());
+                    jList_torneos.setModel(modelo);
+
                     jD_listasAdmin.pack();
                     jD_listasAdmin.setLocationRelativeTo(this);
                     jD_listasAdmin.setModal(true);
@@ -477,16 +494,16 @@ public class Principal extends javax.swing.JFrame {
     private void jb_crearUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearUserMouseClicked
         AdmiBinarios ad = new AdmiBinarios("./Usuarios.Belenes");
         User e = new User(jtf_usernameRegistro.getText(), jtf_passRegistro.getText());
-        
+
         if (CheckBox_admin.isSelected()) {
             e.setTipo(true);
-        }else{
+        } else {
             e.setTipo(false);
         }
         ad.CargarArchivoUser();
         ad.listaUsuarios.add(e);
         ad.EscribirArchivoUser();
-        JOptionPane.showMessageDialog(this, "Usuario guardado");      
+        JOptionPane.showMessageDialog(this, "Usuario guardado");
     }//GEN-LAST:event_jb_crearUserMouseClicked
 
     private void jtf_passRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_passRegistroActionPerformed
@@ -494,23 +511,27 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jtf_passRegistroActionPerformed
 
     private void jb_crearTorneoNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTorneoNuevoMouseClicked
+        AdminBinaroTorneo adt = new AdminBinaroTorneo("./Torneos.Belenes");
+        adt.CargarArchivoUser();
+        Torneo t = new Torneo(jtf_nombreTorneo.getText());
+        adt.listaTorneo.add(t);
         DefaultListModel modelo
                 = (DefaultListModel) jList_torneos.getModel();
-          modelo.addElement(new Torneo (jtf_nombreTorneo.getText()));
-           jList_torneos.setModel(modelo);
-           jtf_nombreTorneo.setText("");
-           
-         DefaultListModel modelo2
-                = (DefaultListModel) jList_personas.getModel();  
-          modelo2.addElement(new User (jtf_usernameRegistro.getText()));
-           jList_personas.setModel(modelo2);
-           jtf_usernameRegistro.setText("");
-            AdminBinaroTorneo adt= new AdminBinaroTorneo("./Usuarios.Belenes");
-            Torneo t= new Torneo ();
-            adt.CargarArchivoUser();
-            adt.listaTorneo.add(t);
-            adt.EscribirArchivoUser();
-             JOptionPane.showMessageDialog(this, "Torneo guardado");
+        for (Torneo x : adt.listaTorneo) {
+            System.out.println(x.getNombre());
+        }
+        System.out.println(modelo.getSize());
+        jList_torneos.setModel(modelo);
+        jtf_nombreTorneo.setText("");
+
+        DefaultListModel modelo2
+                = (DefaultListModel) jList_personas.getModel();
+        modelo2.addElement(jtf_usernameRegistro.getText());
+        jList_personas.setModel(modelo2);
+        jtf_usernameRegistro.setText("");
+
+        adt.EscribirArchivoUser();
+        JOptionPane.showMessageDialog(this, "Torneo guardado");
     }//GEN-LAST:event_jb_crearTorneoNuevoMouseClicked
 
     private void jb_creartorneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_creartorneoMouseClicked
@@ -519,6 +540,10 @@ public class Principal extends javax.swing.JFrame {
         jD_crearTorneoAdmin.setModal(true);
         jD_crearTorneoAdmin.setVisible(true);
     }//GEN-LAST:event_jb_creartorneoMouseClicked
+
+    private void jtf_nombreTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_nombreTorneoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_nombreTorneoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -24,7 +24,7 @@ public class Torneo implements Serializable{
     }
 
     public Torneo( String nombre) {
-        this.ganador = ganador;
+        this.nombre=nombre;
     }
 
     public Torneo(String nombre, boolean terminado, Participante ganador) {
@@ -67,7 +67,7 @@ public class Torneo implements Serializable{
 
     @Override
     public String toString() {
-        return  nombre;
+        return nombre;
     }
     
     
