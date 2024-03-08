@@ -4,7 +4,13 @@
  */
 package lab8p2_mariapadilla_linsyposso;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.ObjectInputStream;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -115,7 +121,6 @@ public class Principal extends javax.swing.JFrame {
 
         CheckBox_participante.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CheckBox_participante.setForeground(new java.awt.Color(0, 0, 0));
-        CheckBox_participante.setSelected(true);
         CheckBox_participante.setText("Participante");
         jPanel3.add(CheckBox_participante, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
 
@@ -127,13 +132,18 @@ public class Principal extends javax.swing.JFrame {
         jb_crearUser.setBackground(new java.awt.Color(255, 51, 51));
         jb_crearUser.setForeground(new java.awt.Color(255, 255, 255));
         jb_crearUser.setText("Crear");
+        jb_crearUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearUserMouseClicked(evt);
+            }
+        });
         jPanel3.add(jb_crearUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 90, 30));
 
         javax.swing.GroupLayout jD_registroLayout = new javax.swing.GroupLayout(jD_registro.getContentPane());
         jD_registro.getContentPane().setLayout(jD_registroLayout);
         jD_registroLayout.setHorizontalGroup(
             jD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
         );
         jD_registroLayout.setVerticalGroup(
             jD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,12 +382,22 @@ public class Principal extends javax.swing.JFrame {
         jb_registro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jb_registro.setForeground(new java.awt.Color(255, 255, 255));
         jb_registro.setText("Registrar");
+        jb_registro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_registroMouseClicked(evt);
+            }
+        });
         jPanel1.add(jb_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 110, 40));
 
         jb_inicio.setBackground(new java.awt.Color(255, 0, 0));
         jb_inicio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jb_inicio.setForeground(new java.awt.Color(255, 255, 255));
         jb_inicio.setText("Iniciar Sesion");
+        jb_inicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_inicioMouseClicked(evt);
+            }
+        });
         jPanel1.add(jb_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab8p2_mariapadilla_linsyposso/Logo_UNITEC (1).png"))); // NOI18N
@@ -397,6 +417,49 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_registroMouseClicked
+        jD_registro.pack();
+        jD_registro.setLocationRelativeTo(this);
+        jD_registro.setModal(true);
+        jD_registro.setVisible(true);
+    }//GEN-LAST:event_jb_registroMouseClicked
+
+    private void jb_inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_inicioMouseClicked
+        String us = jtf_usernamelogin.getText();
+        String pass = jpf_passlogin.getText();
+        if (us.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Llenar todos los campos");
+            return;
+        }
+        AdmiBinarios user = new AdmiBinarios("./Usuarios.Belenes");
+        user.CargarArchivoUser();
+        for (User t : user.listaUsuarios) {
+            if (jtf_usernamelogin.getText().equals(t.getNombre()) && jpf_passlogin.getText().equals(t.getPassword())) {
+                if (t.isTipo()) {
+                    jD_listasAdmin.pack();
+                    jD_listasAdmin.setLocationRelativeTo(this);
+                    jD_listasAdmin.setModal(true);
+                    jD_listasAdmin.setVisible(true);
+                }else{
+                    jD_listasParti.pack();
+                    jD_listasParti.setLocationRelativeTo(this);
+                    jD_listasParti.setModal(true);
+                    jD_listasParti.setVisible(true);
+                }
+
+            }
+        }
+    }//GEN-LAST:event_jb_inicioMouseClicked
+
+    private void jb_crearUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearUserMouseClicked
+        AdmiBinarios ad = new  AdmiBinarios("./Usuarios.Belenes");
+        User e =new User (jtf_usernameRegistro.getText());
+        ad.CargarArchivoUser();
+        ad.listaUsuarios.add(e);
+        ad.EscribirArchivoUser();
+        JOptionPane.showMessageDialog(this, "Usuario guardado");
+    }//GEN-LAST:event_jb_crearUserMouseClicked
 
     /**
      * @param args the command line arguments

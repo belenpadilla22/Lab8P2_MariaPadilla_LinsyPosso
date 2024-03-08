@@ -1,8 +1,11 @@
 
 package lab8p2_mariapadilla_linsyposso;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String nombre,password;
+    private boolean tipo;
 
     public User() {
     }
@@ -10,6 +13,7 @@ public class User {
     public User(String nombre, String password) {
         this.nombre = nombre;
         this.password = password;
+        this.tipo = tipo;
     }
 
     public String getNombre() {
@@ -18,6 +22,14 @@ public class User {
     public User(String nombre) {
         this.nombre = nombre;
         
+    }
+
+    public boolean isTipo() {
+        return tipo;
+    }
+
+    public void setTipo(boolean tipo) {
+        this.tipo = tipo;
     }
 
 

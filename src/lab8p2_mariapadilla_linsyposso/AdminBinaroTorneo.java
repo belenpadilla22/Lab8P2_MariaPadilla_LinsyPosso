@@ -14,26 +14,23 @@ import java.util.ArrayList;
 
 /**
  *
- * @author belen
+ * @author 29164
  */
-public class AdmiBinarios {
-    public ArrayList<User> listaUsuarios= new ArrayList();
-    public File archivo = null;
-   
-    
-     public AdmiBinarios(String path) {
+public class AdminBinaroTorneo {
+    private ArrayList<Torneo> listaTorneo= new ArrayList();
+      private File archivo = null;
+      
+       
+     public AdminBinaroTorneo(String path) {
         archivo = new File(path);
     }
 
-    public AdmiBinarios() {
+    public ArrayList<Torneo> getListaTorneo() {
+        return listaTorneo;
     }
 
-    public ArrayList<User> getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public void setListaUsuarios(ArrayList<User> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public void setListaTorneo(ArrayList<Torneo> listaTorneo) {
+        this.listaTorneo = listaTorneo;
     }
 
     public File getArchivo() {
@@ -44,18 +41,24 @@ public class AdmiBinarios {
         this.archivo = archivo;
     }
 
-    
-        
-     public void CargarArchivoUser (){
+    public AdminBinaroTorneo (){
+    }
+
+    @Override
+    public String toString() {
+        return "AdmiBinarioTorneos{" + "listaTorneo=" + listaTorneo + ", archivo=" + archivo + '}';
+    }
+
+    public void CargarArchivoUser (){
          try {
-             listaUsuarios=new ArrayList();
-             User temp;// limpiar memoria RAM
+             listaTorneo=new ArrayList();
+             Torneo temp;// limpiar memoria RAM
              if (archivo.exists()){// si existe 
                  FileInputStream entrada=new FileInputStream(archivo);
                  ObjectInputStream objeto=new ObjectInputStream(entrada);
                  try {
-                     while ((temp=(User)objeto.readObject())!=null){// leer de objeto a objeto
-                          listaUsuarios.add(temp);
+                     while ((temp=(Torneo)objeto.readObject())!=null){// leer de objeto a objeto
+                          listaTorneo.add(temp);
                      }
                  } catch (EOFException e) {
                      
@@ -76,7 +79,7 @@ public class AdmiBinarios {
          try {
              fw=new FileOutputStream(archivo);
              bw=new ObjectOutputStream(fw);
-             for (User t : listaUsuarios) {
+             for ( Torneo t :listaTorneo) {
                  bw.writeObject(t);
              }
              bw.flush();
